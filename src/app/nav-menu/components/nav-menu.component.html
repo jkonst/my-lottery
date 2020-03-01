@@ -1,0 +1,29 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <button class="navbar-toggler collapsed" type="button" (click)="isCollapsed = !isCollapsed" aria-controls="navbarToggler" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarToggler" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item" routerLinkActive="my-active" [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link" 
+              routerLink="/">
+              My Lottery
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="my-active">
+          <a class="nav-link" 
+            routerLink="/form">
+            Form
+          </a>
+        </li>
+        <li class="nav-item" routerLinkActive="my-active">
+          <a class="nav-link"
+           [routerLink]="['/winners']">
+            Winners
+          </a>
+        </li>     
+      </ul>    
+    </div>
+  </nav>
+  

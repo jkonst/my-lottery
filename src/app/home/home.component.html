@@ -1,0 +1,76 @@
+<!-- first section - Home -->
+<div id="home" class="home">
+    <div class="text-vcenter">
+      <h1>{{appTitle}}</h1>
+      <h3>{{appDesc}}</h3>
+    </div>
+  </div>
+  <div id="about" class="pad-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">        
+        </div>
+        <div class="col-sm-6 text-center">
+          <h2>{{appGoal}}</h2>
+          <p class="lead">{{howTo}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="information" class="pad-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2 class="panel-title">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" routerLink="/form"> {{goToFile}} </a>
+                    </li>
+                  </ul>
+                </h2>
+              </div>
+              <div class="panel-body lead">
+               {{fileDesc}}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h2 class="panel-title">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link" routerLink="/winners"> {{goToWinners}}</a>
+                        </li>
+                    </ul>
+                </h2>
+              </div>
+              <div class="panel-body lead">
+                {{winnersDesc}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>    
+  <div id="social-info" class="pad-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 text-center">          
+              <div id="twitter">  
+                <iframe ng-show="i_konstas" allowtransparency="true" frameborder="0" scrolling="no"
+                [src]='sanitizer.bypassSecurityTrustResourceUrl(twitterSrc)'
+                style="width:100px; height:20px;"></iframe>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>  
+    <footer>
+      <hr />
+      <div class="container">
+        <p class="text-right">{{copyright}} &copy; <a [href]='sanitizer.bypassSecurityTrustResourceUrl(gitUrl)' class="btn btn-default btn-lg">{{author}} {{dateTime | date:'yyyy'}}</a></p>
+      </div>
+    </footer>  

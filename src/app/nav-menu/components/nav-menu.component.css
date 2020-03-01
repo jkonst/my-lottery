@@ -1,0 +1,21 @@
+.navbar-brand {
+    color: blueviolet;
+    font-size: 1.8 rem;
+    margin-right: 2.2 rem;
+}
+
+.my-active {
+    color: darkslategray;
+    font-weight: bolder;
+    font-size: large;
+}
+
+li.nav-item {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+li.nav-item:hover {
+    border-radius: 5px;
+    background-color: #6b9cb5;
+}
