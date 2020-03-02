@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TextLibrary } from '../shared/text';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -18,11 +18,6 @@ export class HomeComponent implements OnInit {
   fileDesc = TextLibrary.APP_FILE_DESCRIPTION;
   winnersDesc = TextLibrary.APP_FILE_WINNERS;
   twitterSrc = TextLibrary.TWITTER_SRC;
-  copyright = TextLibrary.COPYRIGHT;
-  author = TextLibrary.NAME;
-  gitUrl = TextLibrary.GIT_URL;
-
-  dateTime = new Date();
 
   constructor(public sanitizer: DomSanitizer) { }
 

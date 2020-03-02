@@ -1,1 +1,16 @@
-<p>form works!</p>
+
+  <div [formGroup]="form" class="form-container" (ngSubmit)="submit()" fxLayout="column"fxLayoutAlign="center center">
+    <mat-form-field appearance="fill">
+      <mat-label>No of winners</mat-label>
+      <input matInput placeholder="No of winners" formControlName="winnersNo">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+      <mat-label>Candidates</mat-label>
+      <textarea matInput placeholder="comma-separated list of candidates" formControlName="candidates"></textarea>
+    </mat-form-field>
+    <br>
+    <app-file-upload formControlName="csv" [progress]="progress"></app-file-upload>
+    <br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>

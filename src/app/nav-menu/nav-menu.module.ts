@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavMenuComponent } from './components/nav-menu.component';
 import { HomeComponent } from '../home/home.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
+import { NotFoundComponent } from '../shared/components/not-found/not-found.component';
 import { WinnersComponent } from '../winners/winners.component';
 import { FormComponent } from '../lottery-forms/form/form.component';
 

@@ -76,11 +76,8 @@ html, body {
   footer .glyphicon:hover {
     color: #306d9f;
   }
-  h2.panel-title a {
+  h2.panel-title a, .panel-body {
     color: gold;
-  }
-  .panel-body {
-    color: darkmagenta;
   }
   #twitter{
     float: left;
