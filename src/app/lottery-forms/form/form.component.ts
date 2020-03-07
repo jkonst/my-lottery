@@ -10,16 +10,16 @@ import { isCommaSeparated } from 'src/app/shared/isCommaSeparated';
 })
 export class FormComponent implements OnInit {
   progress = 0;
-  form: FormGroup;
+  candidatesForm: FormGroup;
 
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.form = this.fb.group({
+    this.candidatesForm = this.fb.group({
       winnersNo: new FormControl(0, [Validators.required,
         Validators.pattern('^[0-9]*$'),
         Validators.maxLength(5)]),
-      candidates: new FormControl('', [Validators.required, isCommaSeparated('candidates')]),
+      candidates: new FormControl(null, [Validators.required, isCommaSeparated('candidates')]),
       csv: new FormControl(null, [Validators.required, requiredFileType('csv')])
     });
   }
@@ -29,7 +29,10 @@ export class FormComponent implements OnInit {
   }
 
   submit() {
-    console.log('form submitted');
+    console.log('candidates form submitted');
+    if (!this.candidatesForm.valid) {
+      console.log('Something went wrong');
+    }
   }
 
 }

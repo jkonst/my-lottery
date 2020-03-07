@@ -1,13 +1,19 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, ValidationErrors } from '@angular/forms';
 
 export function isCommaSeparated(name: string) {
-    return (control: FormControl): {[key: string]: any} | null  => {
-        const value: string = control.value;
-        if (value.split(',') && value.split(',').length > 0) {
+    return (control: FormControl) => {
+        const value = control.value;
+        if (value) {
+            if (value.split(',') && value.split(',').length > 1) {
+                // valid
+                return null;
+            }
             return {
-                [name]: {value: control.value}
+                [name]: false
             };
         }
-        return null;
+        return {
+            [name]: false
+        };
     };
 }

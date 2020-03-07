@@ -1,5 +1,5 @@
 
-  <div [formGroup]="form" class="form-container" (ngSubmit)="submit()" fxLayout="column"fxLayoutAlign="center center">
+  <form [formGroup]="candidatesForm" class="form-container" (ngSubmit)="submit()" fxLayout="column"fxLayoutAlign="center center">
     <mat-form-field appearance="fill">
       <mat-label>No of winners</mat-label>
       <input matInput placeholder="No of winners" formControlName="winnersNo">
@@ -13,4 +13,4 @@
     <app-file-upload formControlName="csv" [progress]="progress"></app-file-upload>
     <br>
     <button type="submit" class="btn btn-primary">Submit</button>
-</div>
+  </form>
