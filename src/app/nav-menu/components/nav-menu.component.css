@@ -5,7 +5,7 @@
 }
 
 .my-active {
-    color: darkslategray;
+    color: darkgray;
     font-weight: bolder;
     font-size: large;
 }
@@ -17,5 +17,5 @@ li.nav-item {
 
 li.nav-item:hover {
     border-radius: 5px;
-    background-color: #6b9cb5;
+    background-color: #fff;
 }

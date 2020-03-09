@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { requiredFileType } from 'src/app/shared/requiredFileType';
 import { isCommaSeparated } from 'src/app/shared/isCommaSeparated';
+import { LotteryFormsService } from '../lottery-forms.service';
 
 @Component({
   selector: 'app-form',
@@ -12,7 +13,7 @@ export class FormComponent implements OnInit {
   progress = 0;
   candidatesForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private service: LotteryFormsService) { }
 
   ngOnInit() {
     this.candidatesForm = this.fb.group({

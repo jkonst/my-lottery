@@ -1,0 +1,43 @@
+.winners-wrapper {
+    background-color: beige;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    min-height: 800px;
+}
+
+.winners-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.header-image {
+    background-image: url(../../assets/images/winners_avatar.png);
+    background-size: cover;
+}
+
+.mat-card-title {
+    font-size: x-large;
+}
+
+.no-winners-found {
+    color: lightgray;
+}
+
+.winners-table {
+    width: 100%;
+}
+
+.mat-header-cell {
+    font-size: 16px;
+}
+
+.mat-header-cell, .mat-cell {
+    vertical-align: middle;
+    padding-right: 20px;
+}
+
+.mat-column-identifier {
+    width: 100%;
+    text-align: left;
+}
