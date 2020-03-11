@@ -8,7 +8,7 @@
         </mat-card-header>
         <mat-card-content>
           <span class="no-winners-found" *ngIf="(winners$ | async).length === 0">
-            No winners found. Try to fill the form.
+            No winners found. Try to fill the <a class="nav-link" routerLink="/lottery" routerLinkActive="router-link-active" >form</a>.
           </span>
           
           <ng-container *ngIf="(winners$ | async).length > 1">

@@ -5,11 +5,21 @@
     min-height: 800px;
 }
 
-.form-container {
-    text-align: center;
-    padding: 20px;
-    max-width: 600px;
+.header-image {
+    background-image: url(../../../assets/images/lottery_avatar.jpg);
+    background-size: cover;
+}
+
+.form-card {
+    max-width: 400px;
     margin: 0 auto;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);;
-    background-color: #fff;
+    text-align: center;
+}
+
+.mat-card-title {
+    font-size: x-large;
+}
+
+.mat-card-header {
+    justify-content: center;
 }

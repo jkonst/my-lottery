@@ -15,7 +15,7 @@ const routes: Routes = [
     component: WinnersComponent
   },
   {
-    path: 'form',
+    path: 'lottery',
     component: FormComponent
   },
   {

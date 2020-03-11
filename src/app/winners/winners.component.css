@@ -41,3 +41,13 @@
     width: 100%;
     text-align: left;
 }
+
+.no-winners-found .nav-link {
+    display: inline-flex;
+    padding: 0px;
+    color: darkgray;
+}
+
+.no-winners-found .nav-link:hover {
+    font-weight: bold;
+}
