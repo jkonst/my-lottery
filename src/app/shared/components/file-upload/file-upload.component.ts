@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, HostListener, ElementRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { LotteryFormsService } from 'src/app/lottery-forms/lottery-forms.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -14,7 +15,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ]
 })
 export class FileUploadComponent implements ControlValueAccessor {
-  @Input() progress;
   onChange: (file: any) => void;
   file: File | null = null;
 
@@ -24,7 +24,7 @@ export class FileUploadComponent implements ControlValueAccessor {
     this.file = file;
   }
 
-  constructor(private host: ElementRef<HTMLInputElement>) { }
+  constructor(private host: ElementRef<HTMLInputElement>, private service: LotteryFormsService) { }
 
   writeValue( value: null ) {
     // clear file input

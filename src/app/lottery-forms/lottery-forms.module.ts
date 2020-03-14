@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormComponent } from './form/form.component';
 import { SharedModule } from '../shared/shared.module';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [FormComponent],
@@ -15,7 +17,9 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     SharedModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   exports: [FormComponent]
 })

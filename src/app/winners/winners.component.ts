@@ -28,7 +28,6 @@ export class WinnersComponent implements OnInit, OnDestroy {
     this.winners$ = this.service.winners$;
     this.winners$.pipe(takeUntil(this.destroy$))
     .subscribe(winners => {
-      console.log(winners);
       this.dataSource = new MatTableDataSource(winners);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;

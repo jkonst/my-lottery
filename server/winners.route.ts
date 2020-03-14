@@ -12,7 +12,7 @@ export function winners(req: Request, res: Response) {
     file.mv(__dirname + '/tmpFiles/server.csv', (err) => {
         if (err) {
             console.error(err);
-            return generateErrorResponse(res, 400, 'error occurred with copying csv file');
+            return errorResponse(res, 400, 'error occurred with copying csv file');
         } else {
             console.log('file moved successfully');
         }
@@ -30,30 +30,38 @@ export function winners(req: Request, res: Response) {
                 theWinners = generateWinners(candidates, winnersNo);
                 if (theWinners && theWinners.length > 0) {
                     if (theWinners.length === winnersNo) {
-                        return res.status(200).send({
-                            success: 'true',
-                            winners: theWinners
-                        });
+                        return successResponse(res, theWinners);
                     } else {
-                        return generateErrorResponse(res, 400, 'Found less winners than the specified winners number');
+                        return errorResponse(res, 400, 'Found less winners than the specified winners number');
                     }
                 } else {
-                    return generateErrorResponse(res, 400, 'error occurred with generating winners');
+                    return errorResponse(res, 400, 'error occurred with generating winners');
                 }
             } else {
-                return generateErrorResponse(res, 400, 'Winners number is greater than the total number of candidates');
+                return errorResponse(res, 400, 'Winners number is greater than the total number of candidates');
             }
         } else {
-            return generateErrorResponse(res, 400, 'error occurred with reading csv file');
+            return errorResponse(res, 400, 'error occurred with reading csv file');
         }
     });
 }
 
-const generateErrorResponse = (res: Response, status: number, message: string) => {
-    return res.status(status).send({
-        success: 'false',
-        message
-    });
+const successResponse = (res: Response, theWinners: string[]) => {
+    setTimeout(() => {
+        res.status(200).send({
+            success: 'true',
+            winners: theWinners
+        });
+    }, 500);
+}
+
+const errorResponse = (res: Response, status: number, message: string) => {
+    setTimeout(() => {
+        res.status(status).send({
+            success: 'false',
+            message
+        });
+    }, 500);
 };
 
 const generateWinners = (candidates: string[], winnersNo: number): string[] => {

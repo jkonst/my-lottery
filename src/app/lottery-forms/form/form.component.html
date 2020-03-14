@@ -16,10 +16,21 @@
           <textarea matInput placeholder="comma-separated list of candidates" formControlName="candidates"></textarea>
         </mat-form-field>
         <br>
-        <app-file-upload formControlName="csv" [progress]="progress"></app-file-upload>
+        <app-file-upload formControlName="csv"></app-file-upload>
         <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" [disabled]="!candidatesForm.valid" class="btn btn-primary">Submit</button>
       </form>
     </mat-card-content>
   </mat-card>
 </div>
+<ng-container *ngIf="(formStatus$ | async) === 'LOADING'">
+  <div class="overlay">
+    <div class="center">
+      <mat-progress-spinner diameter=50 
+                          mode="indeterminate"
+                          color="accent">
+      </mat-progress-spinner>
+    </div>
+  </div>
+</ng-container>
+
