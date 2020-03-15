@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subject } from 'rxjs';
 import { Candidate } from '../model/candidate';
-import { HttpClient, HttpEventType, HttpEvent } from '@angular/common/http';
-import { Status } from '../model/status';
+import { HttpClient, HttpEventType } from '@angular/common/http';
+import { Status, Error } from '../model/response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,8 @@ export class LotteryFormsService {
   winners$: Observable<Candidate[]> = this.winnersSubject.asObservable();
   private formSubmissionStatusSubject = new BehaviorSubject<Status>('INITIAL');
   formSubmissionStatus$: Observable<Status> = this.formSubmissionStatusSubject.asObservable();
+  private errorSubject = new BehaviorSubject<Error>({code: -1, description: ''});
+  error$: Observable<Error> = this.errorSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
@@ -27,22 +29,25 @@ export class LotteryFormsService {
       observe: 'events'
     })
       .subscribe(event => {
-        console.log(event);
         if (event.type === HttpEventType.Response) {
           if (event.status === 200) {
             // tslint:disable-next-line: no-string-literal
             const winners: string[] = event.body['winners'];
             this.winnersSubject.next(winners.map(w => ({ identifier: w })));
             this.formSubmissionStatusSubject.next('SUCCESS');
-          } else {
-            this.error();
+          } else { // error response
+            // tslint:disable-next-line: no-string-literal
+            this.error({code: event.status, description: event.body['message']});
           }
         }
-      }, error => this.error());
+      }, error => { // general error e.g. network etc.
+        this.error({code: error.status, description: error.statusText});
+      });
   }
 
-  private error() {
+  private error(error: Error) {
     this.formSubmissionStatusSubject.next('ERROR');
     this.winnersSubject.next([]);
+    this.errorSubject.next(error);
   }
 }

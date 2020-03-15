@@ -42,3 +42,9 @@
     left:       0; 
     position:   fixed;
 }
+
+.row {
+    display: grid;
+    margin: 0 auto;
+    margin-top: 10px;
+}

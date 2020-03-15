@@ -19,6 +19,13 @@
         <app-file-upload formControlName="csv"></app-file-upload>
         <br>
         <button type="submit" [disabled]="!candidatesForm.valid" class="btn btn-primary">Submit</button>
+        <div class="row" *ngIf="(formStatus$ | async) === 'ERROR'">
+          <div class="col-xs-12">
+            <p class="alert alert-danger">              
+                <strong>Form Submission Failure: {{ (formError$ | async).description }} - {{ (formError$ | async).code }}</strong> Please try again.
+            </p>
+          </div>
+        </div>
       </form>
     </mat-card-content>
   </mat-card>
