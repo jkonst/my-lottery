@@ -11,12 +11,16 @@
           <input matInput placeholder="No of winners" formControlName="winnersNo">
         </mat-form-field>
         <br>
-        <mat-form-field appearance="fill">
+        <mat-checkbox class="toggleCSV" formControlName="toggleCSV" (change)="toggle($event)" color="primary">
+          Use CSV for Candidates
+        </mat-checkbox>
+        <br>
+        <mat-form-field appearance="fill" *ngIf="!useFileInsteadOfText">
           <mat-label>Candidates</mat-label>
           <textarea matInput placeholder="comma-separated list of candidates" formControlName="candidates"></textarea>
         </mat-form-field>
         <br>
-        <app-file-upload formControlName="csv"></app-file-upload>
+        <app-file-upload *ngIf="useFileInsteadOfText" formControlName="csv" fileType='CSV'></app-file-upload>
         <br>
         <button type="submit" [disabled]="!candidatesForm.valid" class="btn btn-primary">Submit</button>
         <div class="row" *ngIf="(formStatus$ | async) === 'ERROR'">

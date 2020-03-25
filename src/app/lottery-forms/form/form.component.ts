@@ -1,4 +1,4 @@
-import { Observable, Subject, BehaviorSubject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil, filter } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -18,6 +18,7 @@ export class FormComponent implements OnInit, OnDestroy {
   formStatus$: Observable<Status>;
   formError$: Observable<Error>;
   candidatesForm: FormGroup;
+  useFileInsteadOfText = true;
   private readonly destroy$ = new Subject();
 
   constructor(private fb: FormBuilder, private service: LotteryFormsService, private router: Router) { }
@@ -28,7 +29,7 @@ export class FormComponent implements OnInit, OnDestroy {
     this.formError$ = this.service.error$;
     this.formStatus$ = this.service.formSubmissionStatus$;
     this.formStatus$.pipe(takeUntil(this.destroy$), filter(s => s === 'SUCCESS'))
-      .subscribe(status => this.router.navigateByUrl('/winners'));
+      .subscribe(_ => this.router.navigateByUrl('/winners'));
   }
 
   submit() {
@@ -41,9 +42,24 @@ export class FormComponent implements OnInit, OnDestroy {
       Validators.pattern('^[0-9]*$'),
       Validators.min(1),
       Validators.maxLength(5)]),
-      candidates: new FormControl(null, [Validators.required, isCommaSeparated('candidates')]),
+      toggleCSV: new FormControl(this.useFileInsteadOfText),
       csv: new FormControl(null, [Validators.required, requiredFileType('csv')])
     });
+  }
+
+  private updateForm() {
+    if (this.useFileInsteadOfText) {
+      this.candidatesForm.removeControl('candidates');
+      this.candidatesForm.addControl('csv', new FormControl(null, [Validators.required, requiredFileType('csv')]));
+    } else {
+      this.candidatesForm.addControl('candidates', new FormControl(null, [Validators.required, isCommaSeparated('candidates')]));
+      this.candidatesForm.removeControl('csv');
+    }
+  }
+
+  toggle(event) {
+    this.useFileInsteadOfText = event.checked;
+    this.updateForm();
   }
 
   ngOnDestroy() {

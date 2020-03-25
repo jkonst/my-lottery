@@ -4,47 +4,57 @@ const neatCsv = require('neat-csv');
 const fs = require('fs');
 
 export function winners(req: Request, res: Response) {
-    const file = req.files.csv;
-    let candidates = [];
-    let theWinners = [];
-    const winnersNo: number = Number(req.body.winnersNo);
+    const parseCsv = req.body.toggleCSV === 'true';
 
-    file.mv(__dirname + '/tmpFiles/server.csv', (err) => {
-        if (err) {
-            console.error(err);
-            return errorResponse(res, 400, 'error occurred with copying csv file');
-        } else {
-            console.log('file moved successfully');
-        }
-    });
-    fs.readFile(__dirname + '/tmpFiles/server.csv', async (err, data) => {
-        if (err) {
-            console.error(err);
-            return;
-        }
-        const pureCsvData = await (neatCsv(data));
-        if (pureCsvData && pureCsvData.length > 0) {
-            candidates = pureCsvData.reduce((a, c) => [...a, ...Object.values(c)], [])
-                                    .filter(candidate => candidate && candidate.length > 0);
-            if (candidates.length >= winnersNo) {
-                theWinners = generateWinners(candidates, winnersNo);
-                if (theWinners && theWinners.length > 0) {
-                    if (theWinners.length === winnersNo) {
-                        return successResponse(res, theWinners);
-                    } else {
-                        return errorResponse(res, 400, 'Found less winners than the specified winners number');
-                    }
-                } else {
-                    return errorResponse(res, 400, 'error occurred with generating winners');
-                }
+    const winnersNo: number = Number(req.body.winnersNo);
+    if (parseCsv) {
+        const file = req.files.csv;
+        file.mv(__dirname + '/tmpFiles/server.csv', (err) => {
+            if (err) {
+                console.error(err);
+                return errorResponse(res, 400, 'error occurred with copying csv file');
             } else {
-                return errorResponse(res, 400, 'Winners number is greater than the total number of candidates');
+                console.log('file moved successfully');
+            }
+        });
+        fs.readFile(__dirname + '/tmpFiles/server.csv', async (err, data) => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+            const pureCsvData = await (neatCsv(data));
+            if (pureCsvData && pureCsvData.length > 0) {
+                const candidates = pureCsvData.reduce((a, c) => [...a, ...Object.values(c)], [])
+                    .filter(candidate => candidate && candidate.length > 0);
+                handleResponse(candidates, winnersNo, res);
+            } else {
+                return errorResponse(res, 400, 'error occurred with reading csv file');
+            }
+        });
+    } else {
+        const candidates = req.body.candidates.split(',');
+        handleResponse(candidates, winnersNo, res);
+    }
+
+}
+
+const handleResponse = (candidates: string[], winnersNo: number, res: Response) => {
+    let theWinners = [];
+    if (candidates.length >= winnersNo) {
+        theWinners = generateWinners(candidates, winnersNo);
+        if (theWinners && theWinners.length > 0) {
+            if (theWinners.length === winnersNo) {
+                return successResponse(res, theWinners);
+            } else {
+                return errorResponse(res, 400, 'Found less winners than the specified winners number');
             }
         } else {
-            return errorResponse(res, 400, 'error occurred with reading csv file');
+            return errorResponse(res, 400, 'error occurred with generating winners');
         }
-    });
-}
+    } else {
+        return errorResponse(res, 400, 'Winners number is greater than the total number of candidates');
+    }
+};
 
 const successResponse = (res: Response, theWinners: string[]) => {
     setTimeout(() => {
