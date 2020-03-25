@@ -21,7 +21,8 @@ export class WinnersComponent implements OnInit, OnDestroy {
   private paginator: MatPaginator;
   private sort: MatSort;
 
-  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator){
+  // see: https://github.com/angular/components/issues/10205
+  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
     this.setDataSourceAttributes();
   }

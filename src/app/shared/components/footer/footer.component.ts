@@ -10,7 +10,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class FooterComponent implements OnInit {
 
   copyright = TextLibrary.COPYRIGHT;
-  author = TextLibrary.NAME;
+  author = TextLibrary.GIT_NAME;
   gitUrl = TextLibrary.GIT_URL;
 
   dateTime = new Date();

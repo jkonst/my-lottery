@@ -15,5 +15,6 @@ export class TextLibrary {
     + 'false&show_count=false';
     public static readonly COPYRIGHT = 'Copyright';
     public static readonly NAME = 'John Konstas';
+    public static readonly GIT_NAME = 'jkonst';
     public static readonly GIT_URL = 'https://github.com/jkonst';
 }

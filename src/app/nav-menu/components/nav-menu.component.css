@@ -4,18 +4,21 @@
     margin-right: 2.2 rem;
 }
 
-.my-active {
-    color: darkgray;
-    font-weight: bolder;
-    font-size: large;
+.my-active .nav-link {
+    color: rgba(0, 0, 0, 0.7);
 }
 
 li.nav-item {
     padding-left: 10px;
     padding-right: 10px;
+    margin-right: 5px;
 }
 
-li.nav-item:hover {
+.collapse li.nav-item {
+    margin-bottom: 5px;
+}
+
+.my-active, li.nav-item:hover {
     border-radius: 5px;
     background-color: #fff;
 }
