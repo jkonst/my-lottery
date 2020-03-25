@@ -35,13 +35,11 @@ export class LotteryFormsService {
             const winners: string[] = event.body['winners'];
             this.winnersSubject.next(winners.map(w => ({ identifier: w })));
             this.formSubmissionStatusSubject.next('SUCCESS');
-          } else { // error response
-            // tslint:disable-next-line: no-string-literal
-            this.error({code: event.status, description: event.body['message']});
           }
         }
       }, error => { // general error e.g. network etc.
-        this.error({code: error.status, description: error.statusText});
+        const errorMessage = (error.error && error.error.message) ? error.error.message : 'Network Issue';
+        this.error({code: error.status, description: error.statusText + ' - ' + errorMessage});
       });
   }
 
