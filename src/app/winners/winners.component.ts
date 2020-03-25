@@ -18,9 +18,17 @@ export class WinnersComponent implements OnInit, OnDestroy {
   winners$: Observable<Candidate[]>;
   displayedColumns: string[] = ['number', 'identifier'];
   dataSource: MatTableDataSource<Candidate>;
+  private paginator: MatPaginator;
+  private sort: MatSort;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
+  @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator){
+    this.paginator = mp;
+    this.setDataSourceAttributes();
+  }
+  @ViewChild(MatSort) set  matSort(ms: MatSort) {
+    this.sort = ms;
+    this.setDataSourceAttributes();
+  }
 
   constructor(private service: LotteryFormsService) { }
 
@@ -29,17 +37,23 @@ export class WinnersComponent implements OnInit, OnDestroy {
     this.winners$.pipe(takeUntil(this.destroy$))
     .subscribe(winners => {
       this.dataSource = new MatTableDataSource(winners);
-      this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
     });
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+  applyFilter(value: string) {
+    this.dataSource.filter = value.trim().toLowerCase();
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
+    }
+  }
+
+  setDataSourceAttributes() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+
+    if (this.paginator && this.sort) {
+      this.applyFilter('');
     }
   }
 

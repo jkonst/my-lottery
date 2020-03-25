@@ -14,7 +14,7 @@
           <ng-container *ngIf="(winners$ | async).length > 1">
               <mat-form-field>
                   <mat-label>Filter</mat-label>
-                  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia">
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Ex. Mia">
               </mat-form-field>
           </ng-container>           
           
