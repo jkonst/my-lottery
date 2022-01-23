@@ -1,0 +1,93 @@
+{
+  "projectType": "application",
+  "root": "apps/my-lottery",
+  "sourceRoot": "apps/my-lottery/src",
+  "prefix": "jkonst",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/my-lottery",
+        "index": "apps/my-lottery/src/index.html",
+        "main": "apps/my-lottery/src/main.ts",
+        "polyfills": "apps/my-lottery/src/polyfills.ts",
+        "tsConfig": "apps/my-lottery/tsconfig.app.json",
+        "assets": [
+          "apps/my-lottery/src/favicon.ico",
+          "apps/my-lottery/src/assets"
+        ],
+        "styles": ["apps/my-lottery/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/my-lottery/src/environments/environment.ts",
+              "with": "apps/my-lottery/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "my-lottery:build:production"
+        },
+        "development": {
+          "browserTarget": "my-lottery:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "my-lottery:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/my-lottery/src/**/*.ts",
+          "apps/my-lottery/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/my-lottery"],
+      "options": {
+        "jestConfig": "apps/my-lottery/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "root": "apps/my-lottery-e2e",
+  "sourceRoot": "apps/my-lottery-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/my-lottery-e2e/cypress.json",
+        "devServerTarget": "my-lottery:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "my-lottery:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/my-lottery-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["my-lottery"]
+}

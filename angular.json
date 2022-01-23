@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "my-lottery": "apps/my-lottery",
+    "my-lottery-e2e": "apps/my-lottery-e2e"
+  }
+}
