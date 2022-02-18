@@ -1,0 +1,57 @@
+.file-area {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+  transition: 0.2s;
+  margin: 2em auto;
+}
+
+.file-area.is-active {
+  background-color: #3f4069;
+}
+
+.upload-btn {
+  margin: 0 auto;
+}
+
+.file-button {
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  padding: 8px 15px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.file-message {
+  font-size: small;
+  font-weight: 300;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*.file-input {*/
+/*  display: none;*/
+/*}*/
+
+.file-upload {
+  display: flex;
+}
+
+.file-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.file-input:focus {
+  outline: none;
+}

@@ -2,7 +2,7 @@
   "projectType": "application",
   "root": "apps/my-lottery",
   "sourceRoot": "apps/my-lottery/src",
-  "prefix": "jkonst",
+  "prefix": "app",
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
@@ -15,7 +15,11 @@
         "tsConfig": "apps/my-lottery/tsconfig.app.json",
         "assets": [
           "apps/my-lottery/src/favicon.ico",
-          "apps/my-lottery/src/assets"
+          "apps/my-lottery/src/assets",
+          { "glob": "**/*", "input": "apps/my-lottery/src/assets", "output": "./assets" },
+          { "glob": "**/*", "input": "libs/lottery-form-feature/assets", "output": "./assets" },
+          { "glob": "**/*", "input": "libs/ui/assets", "output": "./assets" },
+          { "glob": "favicon.ico", "input": "./", "output": "./" }
         ],
         "styles": ["apps/my-lottery/src/styles.css"],
         "scripts": []
@@ -63,7 +67,10 @@
           "browserTarget": "my-lottery:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/my-lottery/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
@@ -74,10 +81,7 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": [
-          "apps/my-lottery/src/**/*.ts",
-          "apps/my-lottery/src/**/*.html"
-        ]
+        "lintFilePatterns": ["apps/my-lottery/src/**/*.ts", "apps/my-lottery/src/**/*.html"]
       }
     },
     "test": {

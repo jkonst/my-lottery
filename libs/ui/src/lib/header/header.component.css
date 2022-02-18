@@ -1,0 +1,39 @@
+.navbar-brand {
+  color: blueviolet;
+  font-size: 1.8 rem;
+  margin-right: 2.2 rem;
+}
+
+li:not(.my-active) .nav-link {
+  color: white;
+}
+
+.my-active .nav-link {
+  padding: 5px;
+  background-color: beige;
+  border-radius: 5px;
+  font-size: larger;
+}
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  color: beige;
+}
+
+li.nav-item {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 5px;
+}
+
+.collapse li.nav-item {
+  margin-bottom: 5px;
+}
+
+.my-active,
+li.nav-item:hover {
+  border-radius: 5px;
+  background-color: #fff;
+}

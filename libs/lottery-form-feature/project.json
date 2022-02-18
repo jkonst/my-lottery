@@ -1,0 +1,23 @@
+{
+  "projectType": "library",
+  "root": "libs/lottery-form-feature",
+  "sourceRoot": "libs/lottery-form-feature/src",
+  "prefix": "app",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lottery-form-feature"],
+      "options": {
+        "jestConfig": "libs/lottery-form-feature/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/lottery-form-feature/src/**/*.ts", "libs/lottery-form-feature/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

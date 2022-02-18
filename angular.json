@@ -1,7 +1,10 @@
 {
   "version": 2,
   "projects": {
+    "lottery-form-feature": "libs/lottery-form-feature",
     "my-lottery": "apps/my-lottery",
-    "my-lottery-e2e": "apps/my-lottery-e2e"
+    "my-lottery-e2e": "apps/my-lottery-e2e",
+    "server": "apps/server",
+    "ui": "libs/ui"
   }
 }

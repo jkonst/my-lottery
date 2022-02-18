@@ -1,0 +1,90 @@
+/* general styles */
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+/* padded section */
+.pad-section {
+  padding: 50px 0;
+  background-color: white;
+}
+
+.pad-section img {
+  width: 100%;
+}
+
+/* vertical-centered text */
+.text-vcenter {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text-vcenter h1 {
+  font-size: 4.5em;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+/* additional sections */
+#home {
+  background: url(../../../../ui/assets/images/home.jpg) no-repeat center center fixed;
+  display: table;
+  height: 750px;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#home a,
+#home h1 {
+  color: white;
+}
+
+#social-info {
+  background-color: #e3f2fd;
+  color: #ffffff;
+}
+
+#social-info .glyphicon {
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 60px;
+  height: 140px;
+  line-height: 140px;
+  text-align: center;
+  vertical-align: middle;
+  width: 140px;
+}
+
+#winners {
+  background: url(../../../../ui/assets/images/estate.jpg) no-repeat center center fixed;
+  display: table;
+  height: 750px;
+  position: relative;
+  width: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+footer {
+  padding: 20px 0;
+}
+
+footer .glyphicon {
+  color: #333333;
+  font-size: 60px;
+}
+
+footer .glyphicon:hover {
+  color: #306d9f;
+}

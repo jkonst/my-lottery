@@ -1,0 +1,18 @@
+.powered-by {
+  margin: auto;
+  color: white;
+}
+
+mat-toolbar {
+  background-color: #1f78b9;
+}
+
+.author a {
+  cursor: pointer;
+  text-decoration: none;
+  color: deeppink;
+}
+
+.author a:hover {
+  color: white;
+}

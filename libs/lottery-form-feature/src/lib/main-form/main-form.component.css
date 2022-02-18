@@ -1,0 +1,77 @@
+form {
+  height: 100%;
+  width: fit-content;
+}
+
+.form-wrapper {
+  background-color: beige;
+  padding-top: 8em;
+}
+
+@media (max-width: 500px) {
+  .form-wrapper {
+    padding-left: 1em;
+    padding-right: 1em;
+    min-height: 35em;
+  }
+}
+
+.header-image {
+  background-image: url(../../../assets/images/lottery_avatar.jpg);
+  background-size: cover;
+}
+
+.form-card {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.mat-card-title {
+  font-size: x-large;
+}
+
+.mat-card-header {
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.row {
+  display: grid;
+  margin: 10px auto 0;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-subscript-wrapper {
+  padding: 0;
+}
+
+mat-form-field {
+  display: block;
+  font-size: large;
+  margin: 1em auto;
+}
+
+mat-slide-toggle {
+  display: flex;
+  margin: 0 auto;
+}
+
+mat-checkbox {
+  display: flex;
+}
+
+mat-card-content {
+  width: 70%;
+  margin: 0 auto;
+}
+
+mat-card-content form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+mat-card-content form button {
+  width: 50%;
+  margin: 0 auto;
+}

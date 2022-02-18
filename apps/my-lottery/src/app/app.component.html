@@ -1,1 +1,7 @@
-<jkonst-nx-welcome></jkonst-nx-welcome>
+<div class="wrapper">
+  <app-header [navigationItems]="links"></app-header>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>

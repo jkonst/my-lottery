@@ -1,0 +1,11 @@
+<ng-container *ngIf="status === 'LOADING'">
+  <div class="overlay">
+    <div class="center">
+      <mat-progress-spinner
+        diameter="50"
+        [mode]="isDeterminate ? 'determinate' : 'indeterminate'"
+        color="accent"
+      ></mat-progress-spinner>
+    </div>
+  </div>
+</ng-container>

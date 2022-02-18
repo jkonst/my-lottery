@@ -1,0 +1,23 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #1f78b9; padding: 5px">
+  <button
+    class="navbar-toggler navbar-dark collapsed"
+    type="button"
+    (click)="isCollapsed = !isCollapsed"
+    aria-controls="navbarToggler"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarToggler" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li
+        *ngFor="let item of navigationItems"
+        routerLinkActive="my-active"
+        [routerLinkActiveOptions]="{ exact: item.default }"
+      >
+        <a class="nav-link" [routerLink]="item.link">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</nav>

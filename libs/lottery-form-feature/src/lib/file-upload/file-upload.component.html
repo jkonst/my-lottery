@@ -1,0 +1,13 @@
+<div class='file-area'>
+  Choose {{ fileType }} file
+  <button mat-mini-fab color='primary' class='upload-btn'>
+    <mat-icon>attach_file</mat-icon>
+  </button>
+  <mat-error *ngIf='hasErrorOnType'>
+    {{'This is not a .csv file'}}
+  </mat-error>
+  <span class='file-message'>
+    {{ file?.name }}
+  </span>
+  <input type='file' class='file-input' />
+</div>
