@@ -35,7 +35,7 @@ export class MainFormComponent implements OnInit, OnDestroy {
         takeUntil(this.destroy$),
         filter(status => status === 'SUCCESS'),
       )
-      .subscribe(_ => this.candidatesForm = this.initForm());
+      .subscribe(_ => (this.candidatesForm = this.initForm()));
   }
 
   submit() {

@@ -85,15 +85,15 @@ export class FormValidatorService {
       if (csvSelected) {
         if (!csv) {
           return {
-            noCSV: true
-          }
+            noCSV: true,
+          };
         }
         return null;
       } else {
         if (!candidates) {
           return {
-            noCandidates: true
-          }
+            noCandidates: true,
+          };
         }
         return null;
       }

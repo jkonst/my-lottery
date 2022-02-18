@@ -10,14 +10,10 @@
           <mat-label>No of winners</mat-label>
           <input matInput placeholder="No of winners" formControlName="winnersNo" />
           <mat-error *ngIf="candidatesForm?.get('winnersNo')?.errors">
-            {{'Invalid input'}}
+            {{ 'Invalid input' }}
           </mat-error>
         </mat-form-field>
-        <mat-slide-toggle
-          formControlName='toggleCSV'
-          color='primary'
-          (change)='toggle($event)'
-        >
+        <mat-slide-toggle formControlName="toggleCSV" color="primary" (change)="toggle($event)">
           Use CSV
         </mat-slide-toggle>
         <mat-form-field *ngIf="candidatesForm?.get('toggleCSV')?.value === false" appearance="fill">
@@ -25,7 +21,7 @@
           <textarea matInput placeholder="comma-separated list of candidates" formControlName="candidates"></textarea>
         </mat-form-field>
         <mat-error *ngIf="!!candidatesForm?.errors?.['winnersExceedCandidates']">
-          {{'No of winners cannot be greater than no of candidates'}}
+          {{ 'No of winners cannot be greater than no of candidates' }}
         </mat-error>
         <app-file-upload
           *ngIf="candidatesForm?.get('toggleCSV')?.value === true"
@@ -34,14 +30,12 @@
           [hasErrorOnType]="!!candidatesForm?.get('csv')?.errors"
         >
         </app-file-upload>
-        {{candidatesForm?.errors | json}}
-        <button mat-raised-button color='primary' type="submit" [disabled]="!candidatesForm.valid">Go</button>
+        {{ candidatesForm?.errors | json }}
+        <button mat-raised-button color="primary" type="submit" [disabled]="!candidatesForm.valid">Go</button>
         <div class="row" *ngIf="status === 'ERROR'">
           <div class="col-xs-12">
-            <p class="alert alert-danger" *ngIf='(formError$ | async) as error'>
-              <strong
-                >Form Submission Failure: {{ error.description }} -
-                {{ error.code }}</strong
+            <p class="alert alert-danger" *ngIf="formError$ | async as error">
+              <strong>Form Submission Failure: {{ error.description }} - {{ error.code }}</strong
               >. Please try again.
             </p>
           </div>
