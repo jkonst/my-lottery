@@ -1,8 +1,8 @@
 import { Request, Response } from 'express';
-import neatCsv from 'neat-csv';
 import * as fs from 'fs';
+import neatCsv from 'neat-csv';
 
-export function winners(req: Request, res: Response) {
+export function getWinners(req: Request, res: Response) {
   const parseCsv = req.body.toggleCSV === 'true';
 
   const winnersNo = Number(req.body.winnersNo);
@@ -104,3 +104,4 @@ const shuffle = (candidates: string[]): string[] => {
 
   return shuffledCandidates;
 };
+

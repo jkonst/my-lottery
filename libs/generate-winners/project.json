@@ -1,0 +1,23 @@
+{
+  "root": "libs/generate-winners",
+  "sourceRoot": "libs/generate-winners/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/generate-winners/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/generate-winners"],
+      "options": {
+        "jestConfig": "libs/generate-winners/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

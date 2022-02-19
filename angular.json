@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "generate-winners": "libs/generate-winners",
     "lottery-form-feature": "libs/lottery-form-feature",
     "my-lottery": "apps/my-lottery",
     "my-lottery-e2e": "apps/my-lottery-e2e",
