@@ -7,7 +7,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [],
-    })
+    }),
   ],
 } as Meta<FileUploadComponent>;
 
@@ -15,9 +15,8 @@ const Template: Story<FileUploadComponent> = (args: FileUploadComponent) => ({
   props: args,
 });
 
-
 export const Primary = Template.bind({});
 Primary.args = {
-    fileType:  'csv',
-    hasErrorOnType:  false,
-}
+  fileType: 'csv',
+  hasErrorOnType: false,
+};

@@ -7,7 +7,7 @@ export default {
   decorators: [
     moduleMetadata({
       imports: [],
-    })
+    }),
   ],
 } as Meta<WinnersComponent>;
 
@@ -15,7 +15,5 @@ const Template: Story<WinnersComponent> = (args: WinnersComponent) => ({
   props: args,
 });
 
-
 export const Primary = Template.bind({});
-Primary.args = {
-}
+Primary.args = {};

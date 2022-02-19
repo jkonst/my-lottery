@@ -104,4 +104,3 @@ const shuffle = (candidates: string[]): string[] => {
 
   return shuffledCandidates;
 };
-
