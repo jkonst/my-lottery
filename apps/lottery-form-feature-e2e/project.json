@@ -1,0 +1,28 @@
+{
+  "root": "apps/lottery-form-feature-e2e",
+  "sourceRoot": "apps/lottery-form-feature-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/lottery-form-feature-e2e/cypress.json",
+        "devServerTarget": "lottery-form-feature:storybook"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "lottery-form-feature:storybook:ci"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/lottery-form-feature-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["lottery-form-feature"]
+}

@@ -17,6 +17,39 @@
       "options": {
         "lintFilePatterns": ["libs/lottery-form-feature/src/**/*.ts", "libs/lottery-form-feature/src/**/*.html"]
       }
+    },
+    "storybook": {
+      "executor": "@nrwl/storybook:storybook",
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "port": 4400,
+        "config": {
+          "configFolder": "libs/lottery-form-feature/.storybook"
+        },
+        "projectBuildConfig": "lottery-form-feature:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@nrwl/storybook:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "uiFramework": "@storybook/angular",
+        "outputPath": "dist/storybook/lottery-form-feature",
+        "config": {
+          "configFolder": "libs/lottery-form-feature/.storybook"
+        },
+        "projectBuildConfig": "lottery-form-feature:build-storybook"
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
     }
   },
   "tags": []

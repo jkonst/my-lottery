@@ -3,6 +3,7 @@
   "projects": {
     "generate-winners": "libs/generate-winners",
     "lottery-form-feature": "libs/lottery-form-feature",
+    "lottery-form-feature-e2e": "apps/lottery-form-feature-e2e",
     "my-lottery": "apps/my-lottery",
     "my-lottery-e2e": "apps/my-lottery-e2e",
     "server": "apps/server",
