@@ -30,7 +30,6 @@
           [hasErrorOnType]="!!candidatesForm?.get('csv')?.errors"
         >
         </app-file-upload>
-        {{ candidatesForm?.errors | json }}
         <button mat-raised-button color="primary" type="submit" [disabled]="!candidatesForm.valid">Go</button>
         <div class="row" *ngIf="status === 'ERROR'">
           <div class="col-xs-12">
