@@ -2,8 +2,8 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Candidate } from '../model/candidate';
-import { Error, Status } from '../model/response';
+import { Candidate } from '../../../../lottery-form-models/src/lib/model/candidate';
+import { Error, Status } from '../../../../lottery-form-models/src/lib/model/response';
 import { WinnersComponent } from '../winners/winners.component';
 
 @Injectable({

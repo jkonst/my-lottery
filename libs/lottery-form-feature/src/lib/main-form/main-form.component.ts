@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { Router } from '@angular/router';
 import { filter, Observable, Subject, takeUntil } from 'rxjs';
-import { Error, Status } from '../model/response';
+import { Error, Status } from '@jkonst/lottery-form-models';
 import { FormValidatorService } from '../services/form-validator.service';
 import { WinnersService } from '../services/winners.service';
 

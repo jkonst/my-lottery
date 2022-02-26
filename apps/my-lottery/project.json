@@ -16,10 +16,26 @@
         "assets": [
           "apps/my-lottery/src/favicon.ico",
           "apps/my-lottery/src/assets",
-          { "glob": "**/*", "input": "apps/my-lottery/src/assets", "output": "./assets" },
-          { "glob": "**/*", "input": "libs/lottery-form-feature/assets", "output": "./assets" },
-          { "glob": "**/*", "input": "libs/ui/assets", "output": "./assets" },
-          { "glob": "favicon.ico", "input": "./", "output": "./" }
+          {
+            "glob": "**/*",
+            "input": "apps/my-lottery/src/assets",
+            "output": "./assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/lottery-form-feature/assets",
+            "output": "./assets"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/ui/assets",
+            "output": "./assets"
+          },
+          {
+            "glob": "favicon.ico",
+            "input": "./",
+            "output": "./"
+          }
         ],
         "styles": ["apps/my-lottery/src/styles.css"],
         "scripts": []

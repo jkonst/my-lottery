@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavItem } from '@jkonst/ui';
+import { NavItem } from '@jkonst/lottery-form-models';
 
 @Component({
   selector: 'app-root',

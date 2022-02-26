@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { Status } from '@jkonst/lottery-form-feature';
 
 @Component({
   selector: 'app-spinner',
@@ -9,8 +8,8 @@ import { Status } from '@jkonst/lottery-form-feature';
 })
 export class SpinnerComponent {
   @Input()
-  isDeterminate: boolean = false;
+  isDeterminate = false;
 
   @Input()
-  status!: Status;
+  isLoading = false;
 }

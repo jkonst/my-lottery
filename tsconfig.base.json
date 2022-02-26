@@ -17,6 +17,7 @@
     "paths": {
       "@jkonst/generate-winners": ["libs/generate-winners/src/index.ts"],
       "@jkonst/lottery-form-feature": ["libs/lottery-form-feature/src/index.ts"],
+      "@jkonst/lottery-form-models": ["libs/lottery-form-models/src/index.ts"],
       "@jkonst/ui": ["libs/ui/src/index.ts"]
     }
   },

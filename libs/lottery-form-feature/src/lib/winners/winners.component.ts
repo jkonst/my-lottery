@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
-import { Candidate } from '../model/candidate';
+import { Candidate } from '../../../../lottery-form-models/src/lib/model/candidate';
 import { WinnersService } from '../services/winners.service';
 
 @Component({

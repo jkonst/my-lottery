@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { NavItem } from '../model/nav-item';
+import { NavItem } from '../../../../lottery-form-models/src/lib/model/nav-item';
 
 @Component({
   selector: 'app-header',

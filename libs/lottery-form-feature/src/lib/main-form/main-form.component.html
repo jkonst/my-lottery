@@ -42,5 +42,5 @@
       </form>
     </mat-card-content>
   </mat-card>
-  <app-spinner [isDeterminate]="false" [status]="status"></app-spinner>
+  <app-spinner [isDeterminate]="false" [isLoading]="status === 'LOADING'"></app-spinner>
 </div>
