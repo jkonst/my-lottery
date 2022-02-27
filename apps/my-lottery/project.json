@@ -14,7 +14,7 @@
         "polyfills": "apps/my-lottery/src/polyfills.ts",
         "tsConfig": "apps/my-lottery/tsconfig.app.json",
         "assets": [
-          "apps/my-lottery/src/favicon.ico",
+          "apps/my-lottery/src/favicon.jpg",
           "apps/my-lottery/src/assets",
           {
             "glob": "**/*",
@@ -32,7 +32,7 @@
             "output": "./assets"
           },
           {
-            "glob": "favicon.ico",
+            "glob": "favicon.jpg",
             "input": "./",
             "output": "./"
           }
