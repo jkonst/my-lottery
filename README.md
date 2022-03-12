@@ -33,8 +33,6 @@ Below are our core plugins:
 - [Node](https://nodejs.org)
   - `ng add @nrwl/node`
 
-There are also many [community plugins](https://nx.dev/community) you could add.
-
 ## Generate an application
 
 Run `ng g @nrwl/angular:app my-app` to generate an application.
